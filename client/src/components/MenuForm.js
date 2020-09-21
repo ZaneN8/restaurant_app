@@ -10,17 +10,21 @@ class MenuForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addMenuProps(this.state.name);
-    this.setState({ name: "" });
+    if (this.props.id) {
+      this.props.updateMenuProp({ ...this.state, id: this.props.id });
+      this.props.handleToggleProp();
+    } else {
+      this.props.addMenuProps(this.state.name);
+      this.setState({ name: "" });
+    }
   };
 
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Input
-          label="New Menu"
-          placeholder="Enter New Menu Here"
-          required
+          label="Menu"
+          placeholder="Enter Menu Here"
           value={this.state.name}
           onChange={this.handleChange}
         />

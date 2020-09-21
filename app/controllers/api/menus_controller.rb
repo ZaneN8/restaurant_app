@@ -15,12 +15,17 @@ class Api::MenusController < ApplicationController
 
   def update
     menu = Menu.find(params[:id])
-    menu.update()
+    menu.update(    )
     render json: menu
+    # if(menu.update)
+    #   render json: menu
+    # else
+    #   render json: menu
+    # end
   end
 
   def destroy
-    menu = Menu.find(parmas[:id]).destroy
+    menu = Menu.find(params[:id]).destroy
     render json: {menu: menu}
   end
 
