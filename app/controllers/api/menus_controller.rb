@@ -1,7 +1,7 @@
 class Api::MenusController < ApplicationController
 
   def index
-    render json: Menu.All
+    render json: Menu.all
   end
 
   def create
